@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clíni-can Veterinarios | Cuidamos a tu mascota como familia</title>
+  <meta name="description" content="Clínica veterinaria profesional. Medicina preventiva, cirugía, diagnóstico y más. Cuidamos a tu mascota con amor y dedicación.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #1a56db;
+      --primary-blue-dark: #1e429f;
+      --primary-blue-light: #e1effe;
+      --accent-red: #dc2626;
+      --accent-red-light: #fee2e2;
+      --text-dark: #111827;
+      --text-gray: #6b7280;
+      --text-light: #9ca3af;
+      --white: #ffffff;
+      --bg-light: #f9fafb;
+      --border-light: #e5e7eb;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-blue);
+    }
+
+    .logo-text span {
+      color: var(--text-dark);
+    }
+
+    .nav-desktop {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text-gray);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-blue);
+    }
+
+    .header-cta {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .header-cta:hover {
+      background: var(--primary-blue-dark);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .mobile-menu-btn span {
+      width: 22px;
+      height: 2px;
+      background: var(--text-dark);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+    .mobile-link {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-link:hover {
+      background: var(--bg-light);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 8rem 1.5rem 5rem;
+      background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-text h1 span {
+      color: var(--primary-blue);
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.9rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-blue-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: var(--white);
+      color: var(--text-dark);
+      padding: 0.9rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid var(--border-light);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-light);
+      background: var(--bg-light);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-logo {
+      width: 100%;
+      max-width: 380px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-feature-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--primary-blue-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-blue);
+    }
+
+    .hero-feature-text {
+      font-size: 0.85rem;
+      color: var(--text-gray);
+    }
+
+    .hero-feature-text strong {
+      display: block;
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Stats */
+    .stats-section {
+      padding: 4rem 1.5rem;
+      background: var(--primary-blue);
+    }
+
+    .stats-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      color: var(--white);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Services Carousel */
+    .services-section {
+      padding: 6rem 1.5rem;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-gray);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .services-carousel-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .services-carousel {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem 0.5rem 2rem;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .services-carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .service-card {
+      flex: 0 0 320px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-light);
+      scroll-snap-align: start;
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-blue-light);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--primary-blue-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      color: var(--primary-blue);
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .service-card p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-light);
+      background: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      color: var(--text-dark);
+    }
+
+    .carousel-btn:hover {
+      background: var(--primary-blue);
+      border-color: var(--primary-blue);
+      color: var(--white);
+    }
+
+    /* Gallery */
+    .gallery-section {
+      padding: 6rem 1.5rem;
+      background: var(--bg-light);
+    }
+
+    .gallery-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 1/1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 2rem 1.5rem 1.5rem;
+      color: var(--white);
+    }
+
+    .gallery-overlay p {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* About */
+    .about-section {
+      padding: 6rem 1.5rem;
+      background: var(--white);
+    }
+
+    .about-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-badge-number {
+      font-size: 1.75rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .about-badge-text {
+      font-size: 0.8rem;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .about-text h2 span {
+      color: var(--primary-blue);
+    }
+
+    .about-text p {
+      color: var(--text-gray);
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .about-list {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .check-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--primary-blue-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-blue);
+      flex-shrink: 0;
+    }
+
+    /* Why Section */
+    .why-section {
+      padding: 6rem 1.5rem;
+      background: var(--bg-light);
+    }
+
+    .why-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.75rem;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-light);
+      transition: all 0.2s;
+    }
+
+    .why-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-blue-light);
+    }
+
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary-blue);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+
+    .why-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text-dark);
+    }
+
+    .why-card p {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 5rem 1.5rem;
+      background: var(--primary-blue);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--white);
+    }
+
+    .cta-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-content p {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--primary-blue);
+      padding: 0.9rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      padding: 0.9rem 1.75rem;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.2s;
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.5);
+    }
+
+    /* Contact */
+    .contact-section {
+      padding: 6rem 1.5rem;
+      background: var(--white);
+    }
+
+    .contact-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-dark);
+    }
+
+    .contact-info > p {
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary-blue);
+    }
+
+    .contact-item-text h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--text-dark);
+    }
+
+    .contact-item-text p,
+    .contact-item-text a {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .contact-item-text a:hover {
+      color: var(--primary-blue);
+    }
+
+    .contact-form {
+      background: var(--bg-light);
+      padding: 2.5rem;
+      border-radius: var(--radius-lg);
+    }
+
+    .contact-form h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px var(--primary-blue-light);
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--primary-blue);
+      color: var(--white);
+      padding: 0.9rem;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .form-submit:hover {
+      background: var(--primary-blue-dark);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--text-dark);
+      color: var(--white);
+      padding: 4rem 1.5rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .footer-brand img {
+      height: 50px;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-sm);
+    }
+
+    .footer-brand p {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      max-width: 280px;
+      line-height: 1.6;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: background 0.2s;
+    }
+
+    .footer-social a:hover {
+      background: var(--primary-blue);
+    }
+
+    .footer-column h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-column ul {
+      list-style: none;
+    }
+
+    .footer-column li {
+      margin-bottom: 0.6rem;
+    }
+
+    .footer-column a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-column a:hover {
+      color: var(--white);
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* WhatsApp Float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 56px;
+      height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-text p { margin: 0 auto 2rem; }
+      .hero-buttons { justify-content: center; }
+      .hero-features { justify-content: center; }
+      .hero-image { order: -1; }
+      .hero-logo { max-width: 300px; }
+      .about-content { grid-template-columns: 1fr; }
+      .about-image { order: -1; }
+      .contact-content { grid-template-columns: 1fr; }
+      .footer-content { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-desktop, .header-cta { display: none; }
+      .mobile-menu-btn { display: flex; }
+      .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
+      .hero-text h1 { font-size: 2.25rem; }
+      .hero-features { flex-direction: column; gap: 1rem; }
+      .stats-content { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .section-title { font-size: 1.75rem; }
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand p { max-width: none; }
+      .footer-social { justify-content: center; }
+      .service-card { flex: 0 0 280px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo-container">
+        <img src="logo-nuevo.jpg" alt="Clíni-can" class="logo-circle">
+        <div class="logo-text">Clíni-<span>can</span></div>
+      </a>
+      <nav class="nav-desktop">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+      <a href="https://wa.me/525511741714" target="_blank" class="header-cta">Agendar Cita</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="mobile-menu" id="mobileMenu">
+      <a href="#inicio" class="mobile-link">Inicio</a>
+      <a href="#servicios" class="mobile-link">Servicios</a>
+      <a href="#nosotros" class="mobile-link">Nosotros</a>
+      <a href="#contacto" class="mobile-link">Contacto</a>
+      <a href="https://wa.me/525511741714" target="_blank" class="mobile-link" style="background: var(--primary-blue); color: white; text-align: center; margin-top: 0.5rem;">Agendar Cita</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-text fade-in">
+        <h1>Cuidamos a tu mascota como si fuera <span>de nuestra familia</span></h1>
+        <p>Somos un equipo de profesionales dedicados a la salud y bienestar de tus compañeros. Atención veterinaria de calidad con el trato que merecen.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/525511741714" target="_blank" class="btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agenda tu Cita
+          </a>
+          <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+        </div>
+        <div class="hero-features">
+          <div class="hero-feature">
+            <div class="hero-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div class="hero-feature-text">
+              <strong>Atención Profesional</strong>
+              Médicos certificados
+            </div>
+          </div>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="hero-feature-text">
+              <strong>Trato Dedicado</strong>
+              Cuidado personalizado
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image fade-in">
+        <img src="logo-nuevo.jpg" alt="Clíni-can Veterinarios" class="hero-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats-section">
+    <div class="stats-content">
+      <div class="stat-item fade-in">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Mascotas Atendidas</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Años de Experiencia</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">5,000+</div>
+        <div class="stat-label">Consultas Realizadas</div>
+      </div>
+      <div class="stat-item fade-in">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Clientes Satisfechos</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Carousel -->
+  <section class="services-section" id="servicios">
+    <div class="section-header fade-in">
+      <span class="section-tag">Nuestros Servicios</span>
+      <h2 class="section-title">Atención integral para tu mascota</h2>
+      <p class="section-subtitle">Ofrecemos servicios veterinarios completos para mantener a tu compañero sano y feliz.</p>
+    </div>
+    <div class="services-carousel-container">
+      <div class="services-carousel" id="servicesCarousel">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3>Medicina Preventiva</h3>
+          <p>Vacunas, desparasitación y chequeos para que tu mascota esté siempre sana y protegida.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </div>
+          <h3>Diagnóstico</h3>
+          <p>Estudios de laboratorio, radiografías y ultrasonido para diagnósticos precisos.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          </div>
+          <h3>Cirugía</h3>
+          <p>Procedimientos quirúrgicos seguros. Esterilización, ortopedia y más con el mejor cuidado.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          </div>
+          <h3>Urgencias</h3>
+          <p>Atención de emergencias para cuando tu mascota más lo necesita.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l4 13 4-13-3-6"/><path d="M2 9h20"/></svg>
+          </div>
+          <h3>Estética</h3>
+          <p>Baño, corte de pelo y limpieza para que tu mascota luzca y se sienta bien.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+          </div>
+          <h3>Nutrición</h3>
+          <p>Asesoría nutricional para cada etapa de vida de tu mascota.</p>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="carousel-btn" id="nextBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section">
+    <div class="section-header fade-in">
+      <span class="section-tag">Nuestro Trabajo</span>
+      <h2 class="section-title">Momentos en la clínica</h2>
+      <p class="section-subtitle">Cada día cuidamos con dedicación a los mejores pacientes.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="leon-cachorro.jpg" alt="Atención a animales exóticos">
+        <div class="gallery-overlay">
+          <p>Animales exóticos</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="vet-con-leon.jpg" alt="Cuidado especializado">
+        <div class="gallery-overlay">
+          <p>Cuidado especializado</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="perro-patita.jpg" alt="Confianza y cariño">
+        <div class="gallery-overlay">
+          <p>Confianza y cariño</p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="perro-feliz.jpg" alt="Pacientes felices">
+        <div class="gallery-overlay">
+          <p>Pacientes felices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about-section" id="nosotros">
+    <div class="about-content">
+      <div class="about-image fade-in">
+        <img src="clinican-foto3.jpg" alt="Equipo Clíni-can Veterinarios">
+        <div class="about-badge">
+          <span class="about-badge-number">15+</span>
+          <span class="about-badge-text">Años de<br>experiencia</span>
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <h2>Nos dedicamos a cuidar a tus <span>mascotas</span></h2>
+        <p>En Clíni-can Veterinarios somos un equipo de profesionales comprometidos con el bienestar animal. Tratamos a cada paciente como si fuera parte de nuestra propia familia.</p>
+        <p>Tenemos un espacio cómodo y limpio, con todo lo necesario para atender bien a tu compañero. Nuestro equipo está preparado para cuidarlo con dedicación.</p>
+        <ul class="about-list">
+          <li>
+            <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Médicos veterinarios certificados
+          </li>
+          <li>
+            <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Instalaciones limpias y bien equipadas
+          </li>
+          <li>
+            <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Atención personalizada
+          </li>
+          <li>
+            <span class="check-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Precios accesibles y transparentes
+          </li>
+        </ul>
+        <a href="#contacto" class="btn-primary">Conoce más</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Section -->
+  <section class="why-section">
+    <div class="section-header fade-in">
+      <span class="section-tag">Por qué elegirnos</span>
+      <h2 class="section-title">La mejor opción para tu mascota</h2>
+      <p class="section-subtitle">Nos diferenciamos por nuestro compromiso con la excelencia y el cuidado de los animales.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3>Equipo Profesional</h3>
+          <p>Médicos veterinarios con experiencia y capacitación continua.</p>
+        </div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div>
+          <h3>Trato con Cariño</h3>
+          <p>Cada mascota recibe atención dedicada. Entendemos que son parte de tu familia.</p>
+        </div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h3>Espacio Limpio y Cómodo</h3>
+          <p>Un lugar tranquilo donde tu mascota se sentirá segura mientras la atendemos.</p>
+        </div>
+      </div>
+      <div class="why-card fade-in">
+        <div class="why-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <h3>Precios Justos</h3>
+          <p>Tarifas transparentes y accesibles. Te informamos antes de cualquier procedimiento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-content fade-in">
+      <h2>¿Tu mascota necesita atención?</h2>
+      <p>Agenda tu cita hoy y dale a tu compañero el cuidado que merece. Estamos listos para ayudarte.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/525511741714" target="_blank" class="btn-white">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <a href="tel:5511741714" class="btn-outline-white">Llamar Ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contacto">
+    <div class="section-header fade-in">
+      <span class="section-tag">Contacto</span>
+      <h2 class="section-title">¿Tienes preguntas? Contáctanos</h2>
+      <p class="section-subtitle">Estamos aquí para ayudarte. Escríbenos o visítanos en nuestra clínica.</p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-info fade-in">
+        <h2>Información de Contacto</h2>
+        <p>Visítanos o comunícate con nosotros.</p>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Dirección</h4>
+            <p>Iturbide #19 Col. Hidalgo<br>Villa Nicolás Romero, México</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Teléfono</h4>
+            <p><a href="tel:5511741714">+52 55 1174 1714</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/525511741714" target="_blank">+52 55 1174 1714</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="contact-item-text">
+            <h4>Horario</h4>
+            <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form fade-in">
+        <h3>Envíanos un mensaje</h3>
+        <iframe
+          src="https://apidomain.conectia.space/widget/form/wwPbuCVxUPREgwACbyf8"
+          style="width:100%;height:450px;border:none;border-radius:12px"
+          id="inline-wwPbuCVxUPREgwACbyf8"
+          data-layout="{'id':'INLINE','position':'inline'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Form 0"
+          data-height="450"
+          data-layout-iframe-id="inline-wwPbuCVxUPREgwACbyf8"
+          data-form-id="wwPbuCVxUPREgwACbyf8"
+          title="Formulario de Contacto"
+        ></iframe>
+        <script src="https://apidomain.conectia.space/js/form_embed.js"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <img src="clinicanlogo.jpg" alt="Clíni-can Veterinarios">
+        <p>Cuidamos a tu mascota con profesionalismo y dedicación. Somos tu mejor opción en atención veterinaria.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/Clinicanveterinarios" target="_blank" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Medicina Preventiva</a></li>
+          <li><a href="#servicios">Diagnóstico</a></li>
+          <li><a href="#servicios">Cirugía</a></li>
+          <li><a href="#servicios">Urgencias</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:5511741714">+52 55 1174 1714</a></li>
+          <li><a href="https://wa.me/525511741714" target="_blank">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Clíni-can Veterinarios. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/525511741714" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    // Animations on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Services Carousel
+    const carousel = document.getElementById('servicesCarousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cardWidth = 336;
+    let autoScrollInterval;
+    let isPaused = false;
+    let touchPauseTimeout;
+
+    // Auto-scroll function
+    function autoScroll() {
+      if (!isPaused) {
+        // Check if at the end, reset to beginning
+        if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 10) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+      }
+    }
+
+    // Start auto-scroll (every 3 seconds)
+    function startAutoScroll() {
+      autoScrollInterval = setInterval(autoScroll, 3000);
+    }
+
+    // Stop auto-scroll
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+
+    // Pause on hover (desktop)
+    carousel.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isPaused = false;
+    });
+
+    // Pause on touch (mobile) for 5 seconds
+    carousel.addEventListener('touchstart', () => {
+      isPaused = true;
+      clearTimeout(touchPauseTimeout);
+    });
+
+    carousel.addEventListener('touchend', () => {
+      clearTimeout(touchPauseTimeout);
+      touchPauseTimeout = setTimeout(() => {
+        isPaused = false;
+      }, 5000);
+    });
+
+    // Manual controls
+    prevBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      isPaused = true;
+      clearTimeout(touchPauseTimeout);
+      touchPauseTimeout = setTimeout(() => {
+        isPaused = false;
+      }, 5000);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      isPaused = true;
+      clearTimeout(touchPauseTimeout);
+      touchPauseTimeout = setTimeout(() => {
+        isPaused = false;
+      }, 5000);
+    });
+
+    // Initialize auto-scroll
+    startAutoScroll();
+  </script>
+</body>
+</html>
